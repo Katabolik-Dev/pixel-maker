@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #body {
+    display : flex; 
+    background-color: rgb(0, 97, 97);
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.wrapper-main{
+  width: 1000 px;
+  margin: 0 auto;
+
+}
+    
+ .defaultPx {
+  background-color: rgb(83, 83, 83);
+  border-style: solid;
+  border-color: black
+  border-width: 1px;
+  float: left';
+ }
