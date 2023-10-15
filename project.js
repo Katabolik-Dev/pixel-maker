@@ -41,7 +41,7 @@ function makeCanvas(container) {
         // header.style.textAlign = 'center'
         // canvas.appendChild(header)
     // CONTAINER STYLE
-    canvas.style.border = '3px solid red';
+    canvas.style.border = '10px solid black';
     canvas.style.width = '100%';
     canvas.style.height = '50%';
     canvas.style.margin = '0 auto';
@@ -50,11 +50,11 @@ function makeCanvas(container) {
     canvas.style.justifyContent = 'center';
     // canvas.style.marginTop = '1rem';
     canvas.style.backgroundColor = 'white'
-    canvas.style.padding = "1%"
+    // canvas.style.padding = "1%"
 
     // CONTAINER APPENDING & CALLBACK EXECUTION
     container.appendChild(canvas);
-    makePixels(60, 120, canvas);
+    makePixels(30, 60, canvas);
 }
 
 function makePixels(rows, columns, canvas) {
@@ -69,8 +69,8 @@ function makePixels(rows, columns, canvas) {
             column.style.display = 'flex'
             // DEFINING SQUARE 
             let pixel = document.createElement('div');
-            pixel.style.width = '10px';
-            pixel.style.height = '10px';
+            pixel.style.width = '20px';
+            pixel.style.height = '20px';
             pixel.style.border = 'thin solid slategrey';
             pixel.style.float = 'left';
             // pixel.addEventListener('click', changeBackground);
@@ -109,7 +109,7 @@ function palette(colors,container){
     header.style.margin = '0 auto'
     palette.appendChild(header)
 
-    palette.style.border = '3px solid blue' 
+    palette.style.border = '5px solid black' 
     palette.style.width = '100%';
     palette.style.height = '20%';
     palette.style.margin = '0 auto'
