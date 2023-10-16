@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // CONTAINER APPENDING & CALLBACK EXECUTION
         container.appendChild(canvas);
-        makePixels(60, 160, canvas);    
+        makePixels(20, 60, canvas);    
     }
 
     function makePixels(rows, columns, canvas) {
