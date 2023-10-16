@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 const obj = {
-    currentColor: null
+    currentColor: null,
+    selectedColor: null
 }
 
 const colors = ['white','black', 'grey','slategrey',
@@ -13,15 +14,16 @@ const colors = ['white','black', 'grey','slategrey',
 // makeCanvas();
 // palette(colors)
 
-canvasPaletteContainer()
-function canvasPaletteContainer(){
+masterContainer()
+function masterContainer(){
     const container = document.createElement('div')
     container.classList.add('wrapper-main')
     container.style.border = '5px solid black'
+    container.style.borderRadius = '40px'
     container.style.width = '80%'
     container.style.height = '100%'
     container.style.display = 'flex'
-    container.style.backgroundColor = 'white'
+    container.style.backgroundColor = 'lightgrey'
     container.style.padding = '1%'
     container.style.gap = '5px'
     container.style.flexDirection = 'column'
@@ -29,6 +31,8 @@ function canvasPaletteContainer(){
     document.body.appendChild(container);
     makeCanvas(container)
     palette(colors,container)
+    // colorInput(container)
+
 }
 
 
@@ -54,7 +58,7 @@ function makeCanvas(container) {
 
     // CONTAINER APPENDING & CALLBACK EXECUTION
     container.appendChild(canvas);
-    makePixels(30, 60, canvas);
+    makePixels(30, 60, canvas);    
 }
 
 function makePixels(rows, columns, canvas) {
@@ -109,7 +113,12 @@ function palette(colors,container){
     header.style.margin = '0 auto'
     palette.appendChild(header)
 
+    
+    
+
+
     palette.style.border = '5px solid black' 
+    palette.style.borderRadius = '30px'
     palette.style.width = '100%';
     palette.style.height = '20%';
     palette.style.margin = '0 auto'
@@ -117,19 +126,43 @@ function palette(colors,container){
     palette.style.flexWrap = 'wrap';
     palette.style.flexDirection = 'row';
     palette.style.justifyContent = 'center'
-    palette.style.marginTop = '1 rem'
+    palette.style.marginTop = '1rem'
     palette.style.backgroundColor = 'white'
     palette.style.padding = "1%"
-    palette.style.gap = '2px 2px'
+    palette.style.gap = '4px 4px'
+
+    const colorInput = document.createElement('input');
+        const colorInputHeader = document.createElement('h1')
+        colorInputHeader.innerHTML = "Hello"
+        colorInput.appendChild(colorInputHeader); 
+        colorInput.type = 'color';
+        colorInput.value = '#ff0000'; // Fix the value formatting
+        colorInput.id = 'color-picker';
+        colorInput.style.marginRight = '3rem'
+        
+        
+    
+        colorInput.addEventListener("input", (e) => {
+            obj.currentColor = e.target.value
+        }, false);
+        colorInput.addEventListener("change", (e) => {
+            obj.currentColor = e.target.value;
+            obj.selectedColor = e.target.value;
+            header.innerHTML = `<h1>Current Color: ${obj.currentColor.toUpperCase()} </h1>`
+        }, false);
+        palette.appendChild(colorInput) 
+        palette.insertBefore(colorInput, header)
+
 
     for (let i = 0; i < colors.length; i++){
         currentColor = colors[i]
         let colorItem = document.createElement('div')
-        colorItem.style.width = '15px';
-        colorItem.style.height = '15px';
+        // colorItem.style.width = '15px';
+        // colorItem.style.height = '15px';
         colorItem.style.padding = '15px'
-        colorItem.style.float = 'left';
-        colorItem.style.border = '1px solid black'
+        // colorItem.style.float = 'right';
+        colorItem.style.border = '3px solid black'
+        colorItem.style.borderRadius = '20px'
 
         // Set current color to match palette item
         colorItem.addEventListener('click', (e) =>{
@@ -148,6 +181,8 @@ function palette(colors,container){
     container.appendChild(palette)
 }
 
+
+/* <input type="color" value="#ff0000" id="color-picker" /> */
 
 // function setCurrentColor(e) {
 //     obj.currentColor = e.target.style.backgroundColor;
