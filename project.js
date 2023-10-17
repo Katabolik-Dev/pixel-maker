@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // create Object for Colors to be stored to
-    const obj = {
-        currentColor: null,
+    let obj = {
+        currentColor: 'black',
         selectedColor: null
     }
+
+
 
 
     // create array with pre-defined colors tp use in palette
@@ -30,9 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // Append container to document body, and invoke callbacks that append to master container. 
         document.body.appendChild(container);
         makeCanvas(container)
+        colorIndicator(container)
         palette(colors,container)
         buttonArray(container)
-        // displayColor(container)
     }
 
 
@@ -99,7 +101,10 @@ document.addEventListener("DOMContentLoaded", function() {
             colorItem.classList.add('colorItem')    
                 colorItem.addEventListener('click', (e) =>{
                 obj.currentColor = e.target.style.backgroundColor
-            })
+                let color = document.querySelector('.colorIndicatorPip')
+                color.style.backgroundColor = e.target.style.backgroundColor
+                
+                })
             colorItem.style.backgroundColor = thisColor
             palette.appendChild(colorItem)
             }
@@ -107,6 +112,15 @@ document.addEventListener("DOMContentLoaded", function() {
         //
         container.appendChild(palette)
     }
+
+    // function setCurrentColor(e) {
+//     obj.currentColor = e.target.style.backgroundColor;
+//     console.log(e.target);
+// }
+// function changeBackground(e) {
+//     e.target.style.backgroundColor = obj.currentColor
+//     console.log(e.target);
+// }
 
     function buttonArray(container){
         const buttonArray = document.createElement('div');
@@ -133,43 +147,34 @@ document.addEventListener("DOMContentLoaded", function() {
         container.appendChild(buttonArray)
     }
 
-//     function displayColor(container){
-//         const displayColor = document.createElement('div')
+    function colorIndicator(container){
+        const colorIndicator = document.createElement('div')
      
+        colorIndicator.classList.add('colorIndicator')
 
-//         const displayColorHeader = document.createElement('div')
-//         displayColorHeader.innerHTML = '<h1>Current Color:<h1>'
-//         displayColorHeader.style.color = 'black'
-//         displayColorHeader.style.marginLeft = '1rem'
-//         displayColor.appendChild(displayColorHeader)
+        const colorIndicatorHeader = document.createElement('div')
+        colorIndicatorHeader.innerHTML = '<h1>Current Color:<h1>'
+        colorIndicatorHeader.style.color = 'black'
+        colorIndicatorHeader.style.fontFamily = "Brush Script MT"
+        colorIndicatorHeader.style.marginLeft = '1rem'
+        colorIndicator.appendChild(colorIndicatorHeader)
 
-//         const displayColorIndicator = document.createElement('div')
-//         displayColorIndicator.style.border = '3px solid black';
-//         displayColorIndicator.style.borderRadius = '20px'
-//         displayColorIndicator.style.width = '20px';
-//         displayColorIndicator.style.height = '20px';
-//         displayColorIndicator.style.backgroundColor = obj['currentColor']
-//         displayColorIndicator.style.margin = '.5rem'
-//         displayColor.appendChild(displayColorIndicator)
+        const colorIndicatorPip = document.createElement('div')
+        colorIndicatorPip.className = 'colorIndicatorPip'
+        colorIndicatorPip.style.border = '1px solid black';
+        colorIndicatorPip.style.borderRadius = '20px'
+        colorIndicatorPip.style.width = '50px';
+        colorIndicatorPip.style.height = '20px';
+        colorIndicatorPip.style.backgroundColor = obj.currentColor
+        colorIndicatorPip.style.margin = '.5rem'
+        colorIndicator.appendChild(colorIndicatorPip)
         
-        
-//         displayColor.style.border = '5px solid red';
-//         displayColor.style.borderRadius = '30px'
-//         displayColor.style.width = '20%';
-//         displayColor.style.height = '20%';
-//         displayColor.style.margin = '0 auto';
-//         displayColor.style.display = 'flex';
-//         displayColor.style.flexWrap = 'wrap';
-//         displayColor.style.flexDirection = 'row';
-//         displayColor.style.marginTop = '1rem'
-//         displayColor.style.backgroundColor = 'white'
-//         // displayColor.style.padding = '50px'
-//         displayColor.style.justifyContent = 'flex-start'
-//         displayColor.style.gap = '10px 10px'
 
-//         container.appendChild(displayColor)
 
-//     }
 
+
+        container.appendChild(colorIndicator)
+
+    }
 
 })
