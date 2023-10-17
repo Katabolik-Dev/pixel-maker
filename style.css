@@ -30,7 +30,7 @@
 .canvasStyle{
   border: 5px solid tan;
   width: 100%;
-  height: 50%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@
 .palette {
   /* border: 5px solid tan; */
   border-radius: 30px;
-  width: 80%;
+  width: 60%;
   height: 5%;
   margin: 0 auto;
   display: flex;
@@ -61,7 +61,7 @@
 }
 
 .colorItem {
-  padding: 18px;
+  padding: 14px;
   border: 3px solid black;
   border-radius: 20px;
 }
@@ -84,5 +84,6 @@
 .colorHeader {
   font-family: "Brush Script MT", cursive;
   color: 'black';
-  margin: .8rem
+  margin: .8rem;
+  margin-left: 1rem;
 }
