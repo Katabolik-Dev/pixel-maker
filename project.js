@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-
-
     // create array with pre-defined colors tp use in palette
     const colors = ['white','black', 'grey','slategrey',
     'silver', 'blue', 'green', 'seagreen', 'red',  'yellow','orange',
@@ -45,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Canvas appending to container, and invoking makePixels which appends to Canvas.
         container.appendChild(canvas);
-        makePixels(24, 60, canvas);    
+        makePixels(30, 60, canvas);    
     }
 
     function makePixels(rows, columns, canvas) {
@@ -168,13 +166,9 @@ document.addEventListener("DOMContentLoaded", function() {
         colorIndicatorPip.style.backgroundColor = obj.currentColor
         colorIndicatorPip.style.margin = '.5rem'
         colorIndicator.appendChild(colorIndicatorPip)
-        
-
-
-
-
         container.appendChild(colorIndicator)
-
     }
-
+        
+        $('.colorItem')
+    
 })

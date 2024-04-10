@@ -6,7 +6,7 @@
 
   #body {
     display : flex; 
-    background-color: white
+    background-color: white;
     color: black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
